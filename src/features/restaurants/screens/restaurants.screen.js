@@ -17,7 +17,7 @@ const SearchContainer = styled(View)`
   padding: 16px;
 `;
 
-const RetaurantsList = styled(View)`
+const RetaurantsListContainer = styled(View)`
   flex: 1;
   width: 100%;
   padding: 16px;
@@ -29,9 +29,9 @@ export const RestaurantsScreen = () => {
       <SearchContainer>
         <SearchBar />
       </SearchContainer>
-      <RetaurantsList>
+      <RetaurantsListContainer>
         <RestaurantInfoCard />
-      </RetaurantsList>
+      </RetaurantsListContainer>
     </SafeArea>
   );
 };
