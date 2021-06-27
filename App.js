@@ -7,6 +7,7 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
+import { SearchBar } from "./src/components/SearchBar";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
     <>
       <SafeAreaView style={styles.container}>
         <View style={styles.search}>
-          <Text>Search goes here!</Text>
+          <SearchBar />
         </View>
         <View style={styles.list}>
           <Text>Our react native blank canvas!</Text>
@@ -31,7 +32,6 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   search: {
-    backgroundColor: "green",
     width: "100%",
     padding: 16,
   },
