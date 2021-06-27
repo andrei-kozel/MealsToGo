@@ -4,7 +4,6 @@ npm-debug.*
 *.jks
 *.p8
 *.p12
-*.lock
 *.key
 *.mobileprovision
 *.orig.*
