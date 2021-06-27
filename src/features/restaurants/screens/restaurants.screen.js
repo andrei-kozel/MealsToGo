@@ -1,13 +1,13 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
   View,
   SafeAreaView,
   Platform,
   StatusBar,
 } from "react-native";
 import { SearchBar } from "../../../components/SearchBar";
+import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 export const RestaurantsScreen = () => {
   return (
@@ -16,7 +16,7 @@ export const RestaurantsScreen = () => {
         <SearchBar />
       </View>
       <View style={styles.list}>
-        <Text>Our react native blank canvas!</Text>
+        <RestaurantInfoCard />
       </View>
     </SafeAreaView>
   );
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   list: {
-    backgroundColor: "blue",
     flex: 1,
     width: "100%",
     padding: 16,
