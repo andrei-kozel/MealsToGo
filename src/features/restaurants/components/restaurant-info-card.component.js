@@ -1,19 +1,15 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
-import { Card, Title } from "react-native-paper";
+import { View, Image } from "react-native";
+import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-import { Spacer } from "../../../components/spacer.component";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 
-const CardTitle = styled(Title)`
-  color: ${(props) => props.theme.colors.ui.primary};
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-`;
+import { Spacer } from "../../../components/spacer.component";
+import { Text } from "../../../components/text.component";
 
 const Address = styled(Text)`
   font-family: ${(props) => props.theme.fonts.body};
@@ -36,10 +32,6 @@ const IconsSection = styled(View)`
 `;
 
 const OpenIcon = styled(SvgXml)``;
-
-const ClosedText = styled(Text)`
-  color: ${(props) => props.theme.colors.text.error};
-`;
 
 const IconImage = styled(Image)`
   width: ${(props) => props.theme.sizes[1]};
@@ -65,7 +57,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     <Card>
       <Card.Cover source={{ uri: photos[0] }} />
       <Card.Content>
-        <CardTitle>{name}</CardTitle>
+        <Spacer position="top" size="medium">
+          <Text variant="label">{name}</Text>
+        </Spacer>
         <Section>
           <Rating>
             {ratingArray.map(() => (
@@ -74,7 +68,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           </Rating>
           <IconsSection>
             {isClosedTemporarily && (
-              <ClosedText varuant="label">CLOSED TEMPORARILY</ClosedText>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
             <Spacer position="left" size="large">
               {isOpenNow && <OpenIcon xml={open} width={20} height={20} />}
