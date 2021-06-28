@@ -1,6 +1,11 @@
 import React from "react";
 import { Text } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
+import styled from "styled-components/native";
+
+const CardTitle = styled(Title)`
+  color: "${(props) => props.theme.colors.ui.primary}";
+`;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
