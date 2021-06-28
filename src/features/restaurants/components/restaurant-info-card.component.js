@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer.component";
 
 const CardTitle = styled(Title)`
   color: ${(props) => props.theme.colors.ui.primary};
@@ -73,8 +74,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             {isClosedTemporarily && (
               <ClosedText varuant="label">CLOSED TEMPORARILY</ClosedText>
             )}
-            {isOpenNow && <OpenIcon xml={open} width={20} height={20} />}
-            <IconImage source={{ uri: icon }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <OpenIcon xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <IconImage source={{ uri: icon }} />
+            </Spacer>
           </IconsSection>
         </Section>
         <Address>{address}</Address>
