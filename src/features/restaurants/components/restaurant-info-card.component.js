@@ -6,6 +6,8 @@ import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer.component";
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from "uuid";
 
 const CardTitle = styled(Title)`
   color: ${(props) => props.theme.colors.ui.primary};
@@ -67,7 +69,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Section>
           <Rating>
             {ratingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+              <SvgXml key={uuidv4()} xml={star} width={20} height={20} />
             ))}
           </Rating>
           <IconsSection>
