@@ -4,7 +4,8 @@ import { Card, Title, Paragraph } from "react-native-paper";
 import styled from "styled-components/native";
 
 const CardTitle = styled(Title)`
-  color: "${(props) => props.theme.colors.ui.primary}";
+  color: ${(props) => props.theme.colors.ui.primary};
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -24,7 +25,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     <Card>
       <Card.Cover source={{ uri: photos[0] }} />
       <Card.Content>
-        <Title>{name}</Title>
+        <CardTitle>{name}</CardTitle>
         <Paragraph>Card content</Paragraph>
       </Card.Content>
     </Card>
