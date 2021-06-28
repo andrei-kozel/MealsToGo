@@ -28,8 +28,19 @@ const Rating = styled(View)`
   flex-direction: row;
 `;
 
-const Icon = styled(View)`
+const IconsSection = styled(View)`
   flex-direction: row;
+`;
+
+const OpenIcon = styled(SvgXml)``;
+
+const ClosedText = styled(Text)`
+  color: ${(props) => props.theme.colors.text.error};
+`;
+
+const IconImage = styled(Image)`
+  width: ${(props) => props.theme.sizes[1]};
+  height: ${(props) => props.theme.sizes[1]};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -58,15 +69,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
               <SvgXml xml={star} width={20} height={20} />
             ))}
           </Rating>
-          <Icon>
+          <IconsSection>
             {isClosedTemporarily && (
-              <Text varuant="label" style={{ color: "red" }}>
-                CLOSED TEMPORARILY
-              </Text>
+              <ClosedText varuant="label">CLOSED TEMPORARILY</ClosedText>
             )}
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
-          </Icon>
+            {isOpenNow && <OpenIcon xml={open} width={20} height={20} />}
+            <IconImage source={{ uri: icon }} />
+          </IconsSection>
         </Section>
         <Address>{address}</Address>
       </Card.Content>
