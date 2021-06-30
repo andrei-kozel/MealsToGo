@@ -1,42 +1,22 @@
 import React from "react";
-import { View, Image } from "react-native";
 import { Card } from "react-native-paper";
-import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
-import star from "../../../../assets/star";
-import open from "../../../../assets/open";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 
 import { Spacer } from "../../../components/spacer.component";
 import { Text } from "../../../components/text.component";
+import {
+  Address,
+  Section,
+  Rating,
+  IconImage,
+  IconsSection,
+} from "./restaurant-info-card.styles";
 
-const Address = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
-
-const Section = styled(View)`
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-  justify-content: space-between;
-`;
-
-const Rating = styled(View)`
-  flex-direction: row;
-`;
-
-const IconsSection = styled(View)`
-  flex-direction: row;
-`;
-
-const OpenIcon = styled(SvgXml)``;
-
-const IconImage = styled(Image)`
-  width: ${(props) => props.theme.sizes[1]};
-  height: ${(props) => props.theme.sizes[1]};
-`;
+// SVG
+import star from "../../../../assets/star";
+import open from "../../../../assets/open";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -71,7 +51,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
               <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
             <Spacer position="left" size="large">
-              {isOpenNow && <OpenIcon xml={open} width={20} height={20} />}
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             </Spacer>
             <Spacer position="left" size="large">
               <IconImage source={{ uri: icon }} />
