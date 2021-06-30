@@ -1,5 +1,4 @@
 import React from "react";
-import { FlatList } from "react-native";
 // Components
 import { SearchBar } from "../../../components/SearchBar";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
