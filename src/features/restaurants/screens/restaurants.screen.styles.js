@@ -10,9 +10,3 @@ export const SearchContainer = styled.View`
   width: 100%;
   padding: ${(props) => props.theme.space[3]};
 `;
-
-export const RetaurantsListContainer = styled.View`
-  flex: 1;
-  width: 100%;
-  padding: ${(props) => props.theme.space[3]};
-`;
