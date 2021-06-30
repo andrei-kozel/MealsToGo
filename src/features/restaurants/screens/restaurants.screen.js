@@ -3,7 +3,11 @@ import { FlatList } from "react-native";
 // Components
 import { SearchBar } from "../../../components/SearchBar";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { SafeArea, SearchContainer } from "./restaurants.screen.styles";
+import {
+  SafeArea,
+  SearchContainer,
+  RestaurantList,
+} from "./restaurants.screen.styles";
 import { Spacer } from "../../../components/spacer.component";
 
 export const RestaurantsScreen = () => {
@@ -12,7 +16,7 @@ export const RestaurantsScreen = () => {
       <SearchContainer>
         <SearchBar />
       </SearchContainer>
-      <FlatList
+      <RestaurantList
         data={[
           { name: 1 },
           { name: 2 },
@@ -35,7 +39,6 @@ export const RestaurantsScreen = () => {
           </Spacer>
         )}
         keyExtractor={(item) => item.name.toString()}
-        contentContainerStyle={{ padding: 16 }}
       />
     </SafeArea>
   );
