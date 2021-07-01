@@ -2,12 +2,9 @@ import React from "react";
 // Components
 import { SearchBar } from "../../../components/SearchBar";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import {
-  SafeArea,
-  SearchContainer,
-  RestaurantList,
-} from "./restaurants.screen.styles";
+import { SearchContainer, RestaurantList } from "./restaurants.screen.styles";
 import { Spacer } from "../../../components/spacer.component";
+import { SafeArea } from "../../../components/safe-area.component";
 
 export const RestaurantsScreen = () => {
   return (
