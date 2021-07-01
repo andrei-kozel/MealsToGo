@@ -50,27 +50,26 @@ export default function App() {
     );
   }
 
+  const createScreenoptions = ({ route }) => ({
+    tabBarIcon: ({ focused, color, size }) => {
+      let iconName;
+      if (route.name === "Restaurants") {
+        iconName = focused ? "ios-restaurant" : "ios-restaurant-outline";
+      } else if (route.name === "Map") {
+        iconName = focused ? "ios-map" : "ios-map-outline";
+      } else if (route.name === "Settings") {
+        iconName = focused ? "ios-list-sharp" : "ios-list-outline";
+      }
+      return <Ionicons name={iconName} size={size} color={color} />;
+    },
+  });
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
           <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
-
-                if (route.name === "Restaurants") {
-                  iconName = focused
-                    ? "ios-restaurant"
-                    : "ios-restaurant-outline";
-                } else if (route.name === "Map") {
-                  iconName = focused ? "ios-map" : "ios-map-outline";
-                } else if (route.name === "Settings") {
-                  iconName = focused ? "ios-list-sharp" : "ios-list-outline";
-                }
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-            })}
+            screenOptions={createScreenoptions}
             tabBarOptions={{
               activeTintColor: "tomato",
               inactiveTintColor: "gray",
