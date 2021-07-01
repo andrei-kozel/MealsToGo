@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { View, Text, Platform } from "react-native";
+import React from "react";
+import { View, Text } from "react-native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
 
@@ -17,6 +17,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 // Screens
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
+// TEST
+// TODO: Remove
 import "./src/services/restaurant/restaurants.service";
 
 export default function App() {
