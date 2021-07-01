@@ -17,10 +17,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 // Screens
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
-// TEST
-// TODO: Remove
-import "./src/services/restaurant/restaurants.service";
-
 export default function App() {
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
