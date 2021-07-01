@@ -12,9 +12,12 @@ import {
   Oswald_400Regular,
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Screens
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
+
+import "./src/services/restaurant/restaurants.service";
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -51,7 +54,28 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ focused, color, size }) => {
+                let iconName;
+
+                if (route.name === "Restaurants") {
+                  iconName = focused
+                    ? "ios-restaurant"
+                    : "ios-restaurant-outline";
+                } else if (route.name === "Map") {
+                  iconName = focused ? "ios-map" : "ios-map-outline";
+                } else if (route.name === "Settings") {
+                  iconName = focused ? "ios-list-sharp" : "ios-list-outline";
+                }
+                return <Ionicons name={iconName} size={size} color={color} />;
+              },
+            })}
+            tabBarOptions={{
+              activeTintColor: "tomato",
+              inactiveTintColor: "gray",
+            }}
+          >
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
             <Tab.Screen name="Map" component={MapScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
