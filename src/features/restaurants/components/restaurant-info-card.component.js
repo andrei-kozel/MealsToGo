@@ -25,17 +25,17 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     photos = [
       "https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-wall-1834784_1280.jpg",
     ],
-    address = "100 random street",
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    vicinity,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
     <Card>
-      <Card.Cover source={{ uri: photos[0] }} />
+      <Card.Cover key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <Spacer position="top" size="medium">
           <Text variant="label">{name}</Text>
@@ -58,7 +58,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             </Spacer>
           </IconsSection>
         </Section>
-        <Address>{address}</Address>
+        <Address>{vicinity}</Address>
       </Card.Content>
     </Card>
   );
