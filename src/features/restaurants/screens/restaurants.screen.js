@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 // Components
-import { SearchBar } from "../../../components/SearchBar";
+import { SearchBar } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import {
   SearchContainer,
@@ -15,7 +15,7 @@ import { RestaurantsContext } from "../../../services/restaurant/restaurants.con
 import { theme } from "../../../infrastructure/theme/";
 
 export const RestaurantsScreen = () => {
-  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  const { isLoading, restaurants } = useContext(RestaurantsContext);
 
   return (
     <SafeArea>

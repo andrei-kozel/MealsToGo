@@ -28,7 +28,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
-    vicinity,
+    address = "100 Baker Street",
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -58,7 +58,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             </Spacer>
           </IconsSection>
         </Section>
-        <Address>{vicinity}</Address>
+        <Address>{address}</Address>
       </Card.Content>
     </Card>
   );
