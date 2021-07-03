@@ -27,7 +27,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     ],
     isOpenNow = true,
     rating = 4,
-    isClosedTemporarily = true,
+    isClosed = true,
     address = "100 Baker Street",
   } = restaurant;
 
@@ -47,11 +47,11 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             ))}
           </Rating>
           <IconsSection>
-            {isClosedTemporarily && (
-              <Text variant="error">CLOSED TEMPORARILY</Text>
-            )}
+            {isClosed && <Text variant="error">CLOSED TEMPORARILY</Text>}
             <Spacer position="left" size="large">
-              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+              {isOpenNow && !isClosed && (
+                <SvgXml xml={open} width={20} height={20} />
+              )}
             </Spacer>
             <Spacer position="left" size="large">
               <IconImage source={{ uri: icon }} />
