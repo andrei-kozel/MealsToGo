@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { TouchableOpacity } from "react-native";
 
 // Components
 import { SearchBar } from "../components/search.component";
@@ -12,9 +13,10 @@ import {
 import { Spacer } from "../../../components/spacer.component";
 import { SafeArea } from "../../../components/safe-area.component";
 import { RestaurantsContext } from "../../../services/restaurant/restaurants.context";
+
 import { theme } from "../../../infrastructure/theme/";
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
 
   return (
@@ -34,11 +36,19 @@ export const RestaurantsScreen = () => {
           </SearchContainer>
           <RestaurantList
             data={restaurants}
-            renderItem={(item) => {
+            renderItem={({ item }) => {
               return (
-                <Spacer position="bottom" size="large">
-                  <RestaurantInfoCard restaurant={item.item} />
-                </Spacer>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("RestaurantDetail", {
+                      restaurant: item,
+                    })
+                  }
+                >
+                  <Spacer position="bottom" size="large">
+                    <RestaurantInfoCard restaurant={item} />
+                  </Spacer>
+                </TouchableOpacity>
               );
             }}
             keyExtractor={(item) => item.name}
