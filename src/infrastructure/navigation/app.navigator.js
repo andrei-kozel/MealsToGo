@@ -6,6 +6,7 @@ import { Text } from "react-native";
 import styled from "styled-components/native";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
+import { MapScreen } from "../../features/map/screens/map.screen";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,14 +15,6 @@ const View = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
-function MapScreen() {
-  return (
-    <View>
-      <Text>Map!</Text>
-    </View>
-  );
-}
 
 function SettingsScreen() {
   return (
