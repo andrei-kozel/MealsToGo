@@ -13,6 +13,7 @@ import {
   IconImage,
   IconsSection,
 } from "./restaurant-info-card.styles";
+import { Favourite } from "../../../components/favourite.component";
 
 // SVG
 import star from "../../../../assets/star";
@@ -35,6 +36,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <Card>
+      <Favourite restaurant={restaurant} />
       <Card.Cover key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <Spacer position="top" size="medium">
