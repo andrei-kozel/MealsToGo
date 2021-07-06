@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { TouchableOpacity } from "react-native";
 
 // Components
@@ -13,11 +13,16 @@ import {
 import { Spacer } from "../../../components/spacer.component";
 import { SafeArea } from "../../../components/safe-area.component";
 import { RestaurantsContext } from "../../../services/restaurant/restaurants.context";
+import { FavouritesBar } from "../../../components/favourites-bar.component";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 import { theme } from "../../../infrastructure/theme/";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
+
+  const [isToggled, setIsToggled] = useState(false);
 
   return (
     <SafeArea>
@@ -32,8 +37,17 @@ export const RestaurantsScreen = ({ navigation }) => {
       ) : (
         <>
           <SearchContainer>
-            <SearchBar />
+            <SearchBar
+              isFavouritesToggled={isToggled}
+              onFavouritesToggle={() => setIsToggled(!isToggled)}
+            />
           </SearchContainer>
+          {isToggled && (
+            <FavouritesBar
+              favourites={favourites}
+              onNavigate={navigation.navigate}
+            />
+          )}
           <RestaurantList
             data={restaurants}
             renderItem={({ item }) => {

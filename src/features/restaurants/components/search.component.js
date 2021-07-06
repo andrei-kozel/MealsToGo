@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Searchbar } from "react-native-paper";
 import { LocationContext } from "../../../services/location/location.context";
 
-export const SearchBar = () => {
+export const SearchBar = ({ isFavouritesToggled, onFavouritesToggle }) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchQuery, setSearchQuery] = useState(keyword);
 
@@ -16,6 +16,8 @@ export const SearchBar = () => {
 
   return (
     <Searchbar
+      icon={isFavouritesToggled ? "heart" : "heart-outline"}
+      onIconPress={onFavouritesToggle}
       placeholder="Search for a location"
       onChangeText={onChangeSearch}
       value={searchQuery}
