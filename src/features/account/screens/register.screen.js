@@ -38,7 +38,7 @@ export const RegisterScreen = () => {
         />
         <AuthInput
           label="Repeat Password"
-          value={password}
+          value={repeatedPassword}
           textContentType="password"
           secureTextEntry
           autoCapitalize="none"
@@ -51,7 +51,7 @@ export const RegisterScreen = () => {
         )}
         <Spacer size="large">
           <AuthButton
-            icon="lock-open-outline"
+            icon="email"
             mode="contained"
             color="black"
             disabled={
